@@ -35,7 +35,7 @@ https://youtube.com
 ### Using Environment Variables
 You can pass in environment variables like so:
 ```
-FOO=bar BAZ=qux python3 main.py https://google.com
+FOO=bar BAZ=qux python3 main.py https://reddit.com
 ```
 
 Or you can define environment variables in a `.env` file at the root of the project. Each line in this file should represent an environment value like `{KEY}={VALUE}`.
@@ -48,7 +48,7 @@ BAZ=qux
 
 Then all you would need to do is run the program without passing in the environment variables through the command line:
 ```
-python3 main.py https://google.com
+python3 main.py https://reddit.com
 ```
 
-Note that the `.env` file will be ignored by Git, so if you want to commit it, you will need to remove it from `.gitignore`.
+Note that the `.env` file will be ignored by Git, so if you want to commit it, you will need to remove it from `.gitignore`. Generally this file is intended to hold private information, so think twice before you commit it!

@@ -2,7 +2,7 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-def readEnvFile(envFileName = '.env'):
+def read_env_file(envFileName = '.env'):
     """Attempt to read the .env file."""
     try:
         envFile = open(envFileName)
@@ -19,7 +19,7 @@ def readEnvFile(envFileName = '.env'):
     
     return os.environ
 
-def setupChromeDriver():
+def setup_chrome_driver(perfLogPrefs):
     """Setup undetected ChromeDriver with performance log enabled."""
     # Make ChromeDriver undetected
     # Also some things you might want to consider...
@@ -32,11 +32,13 @@ def setupChromeDriver():
     # https://chromedriver.chromium.org/logging/performance-log
     caps = DesiredCapabilities.CHROME
     caps['goog:loggingPrefs'] = {'performance': 'ALL'}
-    driver = webdriver.Chrome(desired_capabilities=caps, options=options)
 
-    return driver
+    if perfLogPrefs:
+        options.add_experimental_option('perfLoggingPrefs', perfLogPrefs)
 
-def setupURLList(argv):
+    return webdriver.Chrome(desired_capabilities=caps, options=options)
+
+def setup_url_list(argv):
     """Setup the URL list."""
     urlList = None
     mode = 'default'
