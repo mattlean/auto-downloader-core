@@ -19,8 +19,8 @@ def read_env_file(envFileName = '.env'):
     
     return os.environ
 
-def setup_chrome_driver(perfLogPrefs):
-    """Setup undetected ChromeDriver with performance log enabled."""
+def setup_chrome_driver(enablePerfLogging = False, perfLogPrefs = None):
+    """Setup undetected ChromeDriver."""
     # Make ChromeDriver undetected
     # Also some things you might want to consider...
     # https://stackoverflow.com/questions/33225947/can-a-website-detect-when-you-are-using-selenium-with-chromedriver/41220267
@@ -28,15 +28,18 @@ def setup_chrome_driver(perfLogPrefs):
     options = webdriver.ChromeOptions()
     options.add_argument('--disable-blink-features=AutomationControlled')
 
-    # Enable performance log
-    # https://chromedriver.chromium.org/logging/performance-log
-    caps = DesiredCapabilities.CHROME
-    caps['goog:loggingPrefs'] = {'performance': 'ALL'}
+    if (enablePerfLogging):
+        # Enable performance log
+        # https://chromedriver.chromium.org/logging/performance-log
+        caps = DesiredCapabilities.CHROME
+        caps['goog:loggingPrefs'] = {'performance': 'ALL'}
 
-    if perfLogPrefs:
-        options.add_experimental_option('perfLoggingPrefs', perfLogPrefs)
+        if perfLogPrefs:
+            options.add_experimental_option('perfLoggingPrefs', perfLogPrefs)
 
-    return webdriver.Chrome(desired_capabilities=caps, options=options)
+        return webdriver.Chrome(desired_capabilities=caps, options=options)
+    else:
+        return webdriver.Chrome(options=options)
 
 def setup_url_list(argv):
     """Setup the URL list."""

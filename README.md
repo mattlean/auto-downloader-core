@@ -3,14 +3,14 @@ This is a starter project offers you the foundation for building a program that 
 
 *Things to note...*
 - *The following commands may differ depending on your Python version, operating system, and environment setup.*
-- *This was only tested with Python 3.8.2, macOS Catalina, and ChromeDriver 94.0.4606.61.*
+- *This was only tested with Python 3.8.2 & 3.8.5, macOS Catalina & Big Sur, and ChromeDriver 94.0.4606.61.*
 
 ## Setup
 1. Download and setup [ChromeDriver](https://chromedriver.chromium.org/downloads).
-2. Install dependencies:  
-`pip3 install -r requirements.txt`
-3. Setup your virtual environment and activate it. The command is probably along the lines of:  
+2. Setup your virtual environment and activate it. The command is probably along the lines of:  
 `source .venv/bin/activate`
+3. Install dependencies:  
+`pip3 install -r requirements.txt`
 
 ## Running The Program
 There are two ways to run the program:
