@@ -52,3 +52,6 @@ python3 main.py https://reddit.com
 ```
 
 Note that the `.env` file will be ignored by Git, so if you want to commit it, you will need to remove it from `.gitignore`. Generally this file is intended to hold private information, so think twice before you commit it!
+
+# Example
+As a proof of concept, you can see this being used to build a Twitch VOD downloader on the [`twitch` branch](https://github.com/mattlean/auto-downloader-core/tree/twitch).

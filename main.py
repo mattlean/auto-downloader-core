@@ -5,7 +5,7 @@ from setup import read_env_file, setup_chrome_driver, setup_url_list
 """ Setup everything needed for the program to run """
 envVars = read_env_file()
 urlList = setup_url_list(argv)
-driver = setup_chrome_driver()
+driver = setup_chrome_driver(True)
 
 """ STUB: Perform your automated operations here... """
 for url in urlList:
